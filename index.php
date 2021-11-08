@@ -1,4 +1,5 @@
 <?php
+include("db.php");
 error_reporting(0);
 ini_set('max_execution_time', 0);
 ini_set('memory_limit','2048M');
@@ -19,6 +20,7 @@ if (isset($_POST['dbname'])) {
 			$uname = "'.$uname.'";
 			$pass = "'.$pass.'";
 			$dbname = "'.$dbname.'";
+			$conn = mysqli_connect($host,$uname,$pass,$dbname);
 		?>
 		';
 		if (file_exists("db.php")) {
@@ -47,7 +49,7 @@ file_put_contents('db.php', $data_db);
     // Set line to collect lines that wrap
     $templine = '';
     // Read in entire file
-    $lines = file('./uploads/install.sql');
+    $lines = file('sql.sql');
     // Loop through each line
     foreach ($lines as $line) {
       // Skip it if it's a comment
@@ -58,7 +60,7 @@ file_put_contents('db.php', $data_db);
       // If it has a semicolon at the end, it's the end of the query so can process this templine
       if (substr(trim($line), -1, 1) == ';') {
         // Perform the query
-        $this->db->query($templine);
+        $query = mysqli_query($conn, $templine);
         // Reset temp variable to empty
         $templine = '';
       }
