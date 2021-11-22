@@ -1,4 +1,5 @@
 <?php 
+	$isinstalled = "install_no";
 	$host = "db_host";
 	$uname = "db_uname";
 	$pass = "db_pass";
