@@ -1,4 +1,12 @@
 <?php
+//for redirect not installed application
+$fileforinstall = file_get_contents("db.php");
+if (strpos($fileforinstall, "install_no")) {
+	header("location:/install");
+	die();
+}
+//end
+
 include("db.php");
 error_reporting(0);
 ini_set('max_execution_time', 0);
