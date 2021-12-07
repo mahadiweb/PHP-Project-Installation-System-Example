@@ -112,6 +112,49 @@ $product_code = "123";
 //end
 
 
+//php version and function check
+<p>
+    <?php if (phpversion() >= 5.6): ?>
+	<i class="fa fa-check color-success"></i>
+    <?php else: ?>
+	<i class="fa fa-times color-danger"></i>
+    <?php endif; ?>
+</p>
+<p>
+    <?php if (extension_loaded('curl')): ?>
+	<i class="fa fa-check color-success"></i>
+    <?php else: ?>
+	<i class="fa fa-times color-danger"></i>
+    <?php endif; ?>
+</p>
+<p>
+    <?php if (extension_loaded('fileinfo')): ?>
+	<i class="fa fa-check color-success"></i>
+    <?php else: ?>
+	<i class="fa fa-times color-danger"></i>
+    <?php endif; ?>
+</p>
+<p>
+    <?php if (extension_loaded('mbstring')): ?>
+	<i class="fa fa-check color-success"></i>
+    <?php else: ?>
+	<i class="fa fa-times color-danger"></i>
+    <?php endif; ?>
+</p>
+<p>
+    <?php if (extension_loaded('gd')): ?>
+	<i class="fa fa-check color-success"></i>
+    <?php else: ?>
+	<i class="fa fa-times color-danger"></i>
+    <?php endif; ?>
+</p>
+//enn php version check
+
+//file permission check
+<p><?php if (is_writable('../application/config')) { ?><i class="fa fa-check color-success"></i><?php } else { ?><i class="fa fa-close color-danger"></i><?php } ?></p>
+<p><?php if (is_writable('../application/language')) { ?><i class="fa fa-check color-success"></i><?php } else { ?><i class="fa fa-close color-danger"></i><?php } ?></p>
+//end file permission
+
 ?>
 
 <form action="" method="post">
