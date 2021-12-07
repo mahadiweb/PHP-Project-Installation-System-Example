@@ -45,6 +45,12 @@ if (isset($_POST['dbname'])) {
 	}
 }
 
+//check database exist or not if database not exist create new database
+$database = "CREATE DATABASE IF NOT EXISTS ".$dbname;
+if(mysqli_query($conn, $database)){
+//then insert .sql file
+};
+
 //for replace spacific file data
 $data_db = file_get_contents('db.php');
 $data_db = str_replace('db_name',	'dd',	$data_db);
